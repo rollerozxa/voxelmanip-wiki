@@ -291,4 +291,4 @@ See the [Lua 5.1 Reference Manual](https://www.lua.org/manual/5.1/manual.html) f
 If mod security is disabled, server-side mods run in an insecure environment, which contains all libraries and library functions, without any restrictions. The same restrictions apply to trusted server-side mods, which can however request an insecure environment in table form using `minetest.request_insecure_environment` which will contain shallow copies of library tables and no global restrictions.
 
 ---
-*This article is originally based on an article from the minetest_docs project: [environment.adoc](https://github.com/minetest/minetest_docs/blob/master/doc/environment.adoc) by appgurueu, licensed under CC-BY 4.0*
+*This article is originally based on an article from the minetest_docs project: [environment.adoc](https://github.com/minetest/minetest_docs/blob/master/doc/environment.adoc) by Lars Müller, licensed under CC-BY 4.0*
