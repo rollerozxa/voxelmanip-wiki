@@ -1,4 +1,3 @@
-# Vector API
 TIP: The respective source code is located [here](https://github.com/minetest/minetest/blob/master/builtin/common/vector.lua).
 
 ## `vector` Namespace
