@@ -1,5 +1,7 @@
 Allows server side mods (SSMs) communication to client side mods (CSMs) and vice versa.
 
+[toc]
+
 ## Server Side API
 
 ### Functions
