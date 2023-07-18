@@ -52,3 +52,6 @@ minetest.register_chatcommand("/set_greeting", {
 	end
 })
 ```
+
+---
+*This article is originally based on an article from the minetest_docs project: [ModStorage.adoc](https://github.com/minetest/minetest_docs/blob/master/doc/classes/ModStorage.adoc) by Lars Müller, licensed under CC-BY 4.0*
