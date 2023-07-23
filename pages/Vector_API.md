@@ -1,22 +1,23 @@
-TIP: The respective source code is located [here](https://github.com/minetest/minetest/blob/master/builtin/common/vector.lua).
-
-## `vector` Namespace
-
-NOTE: The `vector` type used to be a simple `table` with `x`, `y`, and `z` values.
+The `vector` type used to be a simple `table` with `x`, `y`, and `z` values.
 However it has more recently been given metatable methods for convenience.
 Unless otherwise noted, the `vector` type always refers to the metatable-enhanced variety.
 Do note that functions here will accept an old-style (non-metatable) `vector`, but you cannot perform metatable operations with said `vector`.
+
+TIP: The respective source code is located [here](https://github.com/minetest/minetest/blob/master/builtin/common/vector.lua).
+
+## `vector` Namespace
 
 ### `vector.new(a, b, c) -> vector`
 * `a`: `number`, `vector`, or `nil`
 * `b`, `c`: `number` or `nil`
 
-If `a`, `b`, and `c` are `number`:: Returns a new `vector` where `{x = a, y = b, z = c}`
+If `a`, `b`, and `c` are `number`: Returns a new `vector` where `{x = a, y = b, z = c}`
 
 NOTE: {deprecated}
 
-If `a` is a `vector`:: Returns `vector.copy(a)`
-If all parameters are `nil`:: Returns `vector.zero()`
+If `a` is a `vector`: Returns `vector.copy(a)`
+
+If all parameters are `nil`: Returns `vector.zero()`
 
 ### `vector.zero() -> vector`
 Returns a new `vector` where `{x = 0, y = 0, z = 0}`
@@ -55,7 +56,7 @@ Returns `false` otherwise.
 
 Returns the vectorial length (total traveled traveled distance from the origin to the end) of `v`.
 
-The formula for the length is: stem:[sqrt(x^2 + y^2 + z^2)].
+The formula for the length is: `sqrt(x^2 + y^2 + z^2)`.
 
 ### `vector.normalize(v) -> vector`
 * `v`: `vector`
@@ -100,7 +101,7 @@ Example: `vector.combine(v, w, math.pow)` is the same as `vector.new(math.pow(v.
 
 Returns a `number` which is equal to the distance between `a` and `b`.
 
-Distance is equal to the scalar (single number) result of stem:[|bar a - bar b|].
+Distance is equal to the scalar (single number) result of `|bar a - bar b|`.
 
 ### `vector.direction(pos1, pos2) -> vector`
 * `pos1`, `pos2`: `vector`
@@ -112,7 +113,7 @@ Returns a new, normalized `vector` equal to the direction from `pos1` to `pos2`.
 
 Returns a `number` which is equal to the angle (in radians) between `a` and `b`.
 
-Formula used is stem:[tan^-1(|bar a xx bar b|, bar a * bar b)].
+Formula used is `tan^-1(|bar a xx bar b|, bar a * bar b)`.
 
 ### `vector.dot(a, b) -> number`
 * `a`, `b`: `vector`
@@ -128,29 +129,33 @@ Returns a new `vector` which is equal to the cross product of `a` and `b`.
 * `a`: `vector`
 * `b`: `vector` or `number`
 
-If `b` is a `vector`:: Returns a new `vector` where each component of `b` is added to each component of `a`
-If `b` is a `number`:: Returns a new `vector` where `b` is added to each component of `a`
+If `b` is a `vector`: Returns a new `vector` where each component of `b` is added to each component of `a`
+
+If `b` is a `number`: Returns a new `vector` where `b` is added to each component of `a`
 
 ### `vector.subtract(a, b) -> vector`
 * `a`: `vector`
 * `b`: `vector` or `number`
 
-If `b` is a `vector`:: Returns a new `vector` where each component of `b` is subtracted from each component of `a`
-If `b` is a `number`:: Returns a new `vector` where `b` is subtracted from each component of `a`
+If `b` is a `vector`: Returns a new `vector` where each component of `b` is subtracted from each component of `a`
+
+If `b` is a `number`: Returns a new `vector` where `b` is subtracted from each component of `a`
 
 ### `vector.multiply(a, b) -> vector`
 * `a`: `vector`
 * `b`: `vector` or `number`
 
-If `b` is a `vector`:: Returns a new `vector` where each component of `a` is multiplied by component of `b`
-If `b` is a `number`:: Returns a new `vector` where each component of `a` is multiplied by `b`
+If `b` is a `vector`: Returns a new `vector` where each component of `a` is multiplied by component of `b`
+
+If `b` is a `number`: Returns a new `vector` where each component of `a` is multiplied by `b`
 
 ### `vector.divide(a, b) -> vector`
 * `a`: `vector`
 * `b`: `vector` or `number`
 
-If `b` is a `vector`:: Returns a new `vector` where each component of `a` is divided by component of `b`
-If `b` is a `number`:: Returns a new `vector` where each component of `a` is divided by `b`
+If `b` is a `vector`: Returns a new `vector` where each component of `a` is divided by component of `b`
+
+If `b` is a `number`: Returns a new `vector` where each component of `a` is divided by `b`
 
 ### `vector.offset(v, x, y, z) -> vector`
 * `v`: `vector`
@@ -206,8 +211,8 @@ Both `up` and `forward` are normalized by the function before calculations are m
 
 ## Metatable Functions
 
-Metatable-enhanced `vector` values have some convenience features to help make vector math more readable.
-They can have be used with normal math operations rather than needing to call the equivalent namespaced function.
+Metatable-enhanced `vector` values have some convenience features to help make vector math more readable. They can have be used with normal math operations rather than needing to call the equivalent namespaced function.
+
 They also can be indexed either with named keys (`v.x` and `v["x"]`) or they can be indexed with numeric keys (`v[1]` being `v.x`, `v[2]` being `v.y`, and `v[3]` being `v.z`).
 
 ```lua
