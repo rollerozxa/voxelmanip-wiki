@@ -37,7 +37,6 @@ where `x_align` and `y_align` are one of:
 | `2` | Centered/Middle | Centered/Middle |
 | `3` | Right | Bottom/Down |
 
-
 TIP: Magic numbers make code unreadable. Add an explanatory comment when setting alignment:
 
 ```lua
@@ -79,10 +78,10 @@ set_stack_cnt_align(stack, "top", "right")
 
 ## Methods
 
-### `:set_tool_capabilities(tool_capabilities)`
+### `:set_tool_capabilities`
 Allows overriding the tool capabilities specified in the item definition.
 
-### Arguments
+**Arguments**
 - `tool_capabilities` - `nil` or a tool capabilities table: Either:
   - `nil`: Clears the tool capability override, or
   - Tool capabilities table: Overrides the defined tool capabilities (see ItemDefinition for the table format)
