@@ -5,7 +5,11 @@ For various reasons the project fell flat and is currently dormant but contains 
 List of pages on the Voxelmanip Wiki that originate from minetest_docs:
 
 - Classes:
+  - [[ItemStackMetaData]]
+  - [[MetaData]]
   - [[ModStorage]]
+  - [[NodeMetaData]]
+  - [[PlayerMetaData]]
   - [[Raycast]]
   - [[Vector API]]
   - [[VoxelArea]]
