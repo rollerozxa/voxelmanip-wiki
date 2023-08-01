@@ -4,6 +4,7 @@ This page lists all namespaces used by games that are available on ContentDB.
 | --------------- | ---------------------------- |
 | `asuna_`        | Asuna                        |
 | `bb_`           | Blockbomber                  |
+| `bc_`           | Blockcolor                   |
 | `bldg_`         | Build Game                   |
 | `bnb_`          | Build'N'Buy                  |
 | `br_`           | Backrooms Test               |
