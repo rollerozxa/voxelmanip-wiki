@@ -73,5 +73,25 @@ minetest.register_on_generated(function(minp, maxp, seed)
 end)
 ```
 
+## Conserve VoxelArea:index calls
+What the `:index` method of [[VoxelArea]] does is convert the position provided with XYZ coordinates into the corresponding table index in the data table. This method is fast, but obviously not instant, doing some amount of calculations every time.
+
+In order to conserve the amount of calls to `:index`, you can take advantage of the fact incrementing the index will move you on the X-axis:
+
+```lua
+for z = minp.z, maxp.z do
+    for y = minp.y, maxp.y do
+        local vi = area:index(minp.x, y, z)
+        for x = minp.x, maxp.x do
+            --[[ code here ]]
+
+            vi = vi + 1
+        end
+    end
+end
+```
+
+This will significantly cut down on the amount of index calls required by the main mapgen loop.
+
 ---
 *This article is originally based on an article from the Minetest Developer Wiki: [Mapgen memory optimisations](https://dev.minetest.net/Mapgen_memory_optimisations) by Naj and Wuzzy, licensed under CC-BY-SA 3.0, in turn based on [this forum topic](https://forum.minetest.net/viewtopic.php?t=16043) by paramat*
