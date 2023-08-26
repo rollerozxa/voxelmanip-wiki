@@ -6,7 +6,7 @@ While it is possible to write very performant Lua mapgens, it will always genera
 For a list of optimisation techniques you can use to write performant mapgens, see [[Mapgen Optimisations]].
 
 ## Examples
-A good initial example of how to write a custom Lua mapgen is paramat's [lvm_example](https://github.com/paramat/lvm_example/blob/master/init.lua). It incorporates most optimisations techniques to create a performant mapgen and uses Perlin noise to generate random looking terrain.
+A good initial example of how to write a custom Lua mapgen is [lvm_example](https://content.minetest.net/packages/ROllerozxa/lvm_example/). It incorporates most optimisations techniques to create a performant mapgen and uses Perlin noise to generate random looking terrain.
 
 For more examples of custom Lua mapgens, see the [Custom mapgen](https://content.minetest.net/packages/?type=mod&page=1&tag=custom_mapgen) tag on ContentDB.
 
