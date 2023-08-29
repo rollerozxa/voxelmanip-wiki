@@ -3,6 +3,7 @@ This page contains a list of tools that are useful for developing games and mods
 ## General Lua Tools
 - [luacheck](https://github.com/lunarmodules/luacheck): Lua linter and static code analyser (see also [the chapter in rubenwardy's modding book](https://rubenwardy.com/minetest_modding_book/en/quality/luacheck.html))
 - [busted](https://olivinelabs.com/busted/): Lua unit testing framework (see also [the chapter in rubenwardy's modding book](https://rubenwardy.com/minetest_modding_book/en/quality/unit_testing.html))
+- [Lua pattern viewer](https://gitspartv.github.io/lua-patterns/): A site like Regexr but for visualising and working with Lua patterns.
 
 ## Debugging/profiling
 - [debug](https://content.minetest.net/packages/LMD/dbg/): Minetest mod library that offers more debugging capabilities.
