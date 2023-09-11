@@ -1,5 +1,7 @@
 MSYS2 is a collection of tools and libraries providing you with an easy-to-use environment for building, installing and running native Windows software. This page lists how to compile Minetest on Windows using MSYS2.
 
+For a video tutorial of setting up a Minetest development environment on Windows using MSYS2 (including setting up VSCodium), you can see [this video](https://www.youtube.com/watch?v=y8eWDzLNa3E) by Exe_Virus.
+
 [toc]
 
 ## Installation
