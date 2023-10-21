@@ -6,7 +6,7 @@ This page aims to be a complete list of developer documentation resources for Mi
 The [Minetest Modding Book](https://rubenwardy.com/minetest_modding_book/) by rubenwardy is a friendly introduction to Minetest modding and game creation, introducing you to various aspects of the API. It is a perfect resource for learning to develop with Minetest's API, even if you are already experienced with programming.
 
 ## Lua API reference
-The Lua API reference (also known as `lua_api.md`, formerly `lua_api.txt`) is a Markdown file detailing the entire Minetest Lua API. It is bundled with Minetest and can be found in the `doc/` folder, or online on GitHub [here](https://github.com/minetest/minetest/blob/master/doc/lua_api.md). There is also a prettier HTML version available at [minetest.gitlab.io/minetest/](https://minetest.gitlab.io/minetest/).
+The Lua API reference (also known as `lua_api.md`, formerly `lua_api.txt`) is a Markdown file detailing the entire Minetest Lua API. It is bundled with Minetest and can be found in the `doc/` folder, or online on GitHub [here](https://github.com/minetest/minetest/blob/master/doc/lua_api.md). There is also a prettier HTML version available at [api.minetest.net](https://api.minetest.net).
 
 It is the official reference for the Lua API, it is maintained by the Minetest core developers and is usually seen as the source of truth, but can be overly dry at times.
 
