@@ -8,7 +8,6 @@ Minetest uses Lua 5.1. The environment in which Minetest executes mods depends o
 [toc]
 
 ## Platform Independence / Portability
-
 See the [Lua 5.1 Reference Manual](https://www.lua.org/manual/5.1/manual.html) for platform- and OS-environment-dependant Lua features. These include:
 
 * Locale, affecting pattern matching (character classes) and character codes used by `string.char` and `string.byte`
@@ -17,7 +16,6 @@ See the [Lua 5.1 Reference Manual](https://www.lua.org/manual/5.1/manual.html) f
 * `require` and `package.loadlib` (only available in an insecure environment anyways)
 
 ## Global Strictness
-
 Variables in Lua are global by default (both assignment and access). This often leads to mistaken use of global variables, with the two perhaps most common issues being:
 
 1. Missspelling a local variable and accessing a global variable instead (which will usually be `nil`)
@@ -52,27 +50,22 @@ For mod compatibility, the existence of global variables must be checked. A simp
 As Minetest implements global strictness over a metatable, `rawget(_G, name)` can be used in place of just `name` to access possibly `nil` globals without triggering a warning. Similarly, `rawset(_G, name, value)` may be used to set globals at run time.
 
 #### `minetest.global_exists(name)`
-
 Returns `true` if a global variable with the given `name` exists (is not `nil`), `false` otherwise. An error is thrown if `name` is not a string.
 
 NOTE: This wraps `rawget(_G, name)` in the end but might be considered more readable as it makes the intention clear.
 
 ## Standard Library Extensions
-
 NOTE: It is considered bad practice to extend the standard library yourself, as this may collide with other mods doing the same as well as future engine changes including Lua version upgrades. Put your extensions into distinct API tables instead of modifying Lua's builtin libraries.
 
 ### `math`
 
 #### `math.hypot(x, y)`
-
 Finds the length of the hypotenuse `z` according to the Pythagorean Theorem: stem:[z^2 = x^2 + y^2]. Shorthand for `math.sqrt(x*x + y*y)`.
 
 #### `math.sign(x, [tolerance])`
-
 `tolerance` defaults to `0` if falsy. Returns `-1` if the value is smaller than the `tolerance`, `1` if it is larger. Returns `0` if `x` is within the closed tolerance interval `[-tolerance, tolerance]`. Also returns `0` if `x` is `nan`.
 
 #### `math.factorial(x)`
-
 `x` must be a non-negative integer; otherwise, the function will error with `"factorial expects a non-negative integer"`. If `x` is at least `171`, `+inf` is returned.
 
 As Python has built-in big integer support (and uses 64-bit `float`), it can be used to easily determine for which `x` this implementation becomes imprecise due to float precision limitations:
@@ -89,7 +82,6 @@ for x in range(1, 171):
 This will print `23`. This means that only for `x` values ranging from `1` to `22`, both inclusive, `factorial(x)` will be fully accurate.
 
 #### `math.round(x)`
-
 Rounds `x` towards the nearest integer value. Edge cases:
 
 * Ties: If `x` is exactly the same distance from two integer values (`x = k + 0.5`) with `k` being an integer, it is rounded "away from zero", to the value with the higher absolute value:
@@ -99,13 +91,11 @@ Rounds `x` towards the nearest integer value. Edge cases:
 * Special float values: `nan` and `inf` are preserved, as well as their sign.
 
 ### `string`
-
 These functions can be used over the string metatable as well, using `self:func(...)` if `self` is a string.
 
 Note. `"...":func(...)` is a syntax error in Lua. Wrap strings in brackets `(...)` if you want to index them: `("..."):func(...)`.
 
 #### `string.trim(self)`
-
 Will return a string with consecutive spacing characters (`%s` pattern character class) at the start and the end of the string removed. Usually the following characters are considered spacing:
 
 * Horizontal tab: `'\t'` or `'\9'`
@@ -128,7 +118,6 @@ end
 WARNING: Platform-independence is not guaranteed: "The definitions of letter, space, and other character groups depend on the current locale." - [Lua 5.1 Reference Manual, section 5.4.1](https://www.lua.org/manual/5.1/manual.html#5.4.1)
 
 #### `string.split(str, [delim], [include_empty], [max_splits], [sep_is_pattern])`
-
 * `str`: The string to split.
 * `delim`: Delimiter/separator. Defaults to `","` if falsy.
 * `include_empty`: If truthy, empty strings (`""`) are included in the returned list.
@@ -140,11 +129,9 @@ Returns a list containing the delimited parts without the delimiters.
 ### `table`
 
 #### `table.indexof(list, val)`
-
 Linear search for `val` in the `list`. Returns the first index where the value equals `val`. Returns `-1` if the value is not found.
 
 #### `table.copy(t, [seen])`
-
 Deepcopies the table `t` and all it's subtables - both keys and values. Non-table types are not copied, even if they are reference types (userdata, functions and threads). The reference structure will be fully preserved: A single table, even if referenced multiple times, will only be copied a single time; subsequent references in the copy will just reference the same copied table.
 
 The `seen` table is a lookup for already copied tables, which are used as keys. The value is the copy. By providing `[table] = table` entries for certain tables, you can prevent them from being copied.
@@ -158,15 +145,12 @@ a = {}; b = {a, a}; c = table.copy(b); assert(c[1] ## c[2])
 A different deep cloning implementation might clone `a` twice, leading to `c[1] ~= c[2]`.
 
 #### `table.insert_all(t, other)`
-
 Adds all the list entries of `other` to `t` (list part concatenation).
 
 #### `table.key_value_swap(t)`
-
 Returns a new table with the keys of `t` as values and the corresponding values as keys. If a value occurs multiple times in `t`, any of the keys might be the value in the resulting table.
 
 #### `table.shuffle(t, [from], [to], [random])`
-
 Performs a Fisher-Yates shuffling on the specified range of the list part of `t`.
 
 * `from`: Inclusive starting index of the range to be shuffled. Defaults to the first item of the list part if falsy.
@@ -176,15 +160,12 @@ Performs a Fisher-Yates shuffling on the specified range of the list part of `t`
 Returns nothing.
 
 ## LuaJIT extensions
-
 Minetest builds compiled with LuaJIT (`ENABLE_LUAJIT=1`) provide the [LuaJIT extensions](https://luajit.org/extensions.html). These include syntactical Lua 5.2 language features like `goto`, which will lead to a syntax error on PUC Lua 5.1. Hex escapes will be converted into the raw characters by PUC Lua 5.1 (Example: `"\xFF"` which is the same as `"\255"` on LuaJIT will be `"xFF"` on PUC Lua 5.1).
 
 ## Common extensions
-
-[LuaJIT's `bit` library](https://bitop.luajit.org/) is made available for both PUC Lua and LuaJIT builds. It must not be required, as this will lead to a crash in a secure environment as documented below; in an insecure environment, it is simply unneeded. 
+[LuaJIT's `bit` library](https://bitop.luajit.org/) is made available for both PUC Lua and LuaJIT builds. It must not be required, as this will lead to a crash in a secure environment as documented below; in an insecure environment, it is simply unneeded.
 
 ## Secure environment whitelists
-
 In the secure environment, the following builtin Lua(JIT) libraries and library functions are whitelisted:
 
 * `_VERSION`

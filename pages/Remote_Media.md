@@ -7,7 +7,7 @@ If a media file required on the server doesn't exist on the remote server or the
 ## Technical info
 At first, the client will POST request `[remote_media]index.mth`, which contains the list of (SHA1) hashes that are available on the server. The client will then check what hashes it wants, but does not currently have cached, and requests `[remote_media][SHA1 hash]` for each one if it exists in the hash index. If it doesn't exist, it will fall back to traditional transfer.
 
-Preferrably the server should support HTTP/2, though unfortunately the official Android and Windows builds do not come with a cURL linked against libnghttp2 currently. Linux however will usually be linked against a cURL system library that is linked against libnghttp2.
+Preferably the server should support HTTP/2, though unfortunately the official Android and Windows builds do not come with a cURL linked against libnghttp2 currently. Linux however will usually be linked against a cURL system library that is linked against libnghttp2.
 
 ## Setting a remote media server
 Set the `remote_media` setting to the URL of the media server. Restart.

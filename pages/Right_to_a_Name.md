@@ -9,7 +9,7 @@ ContentDB has a page where you can check whether a modname exists, both on Conte
 https://content.minetest.net/modnames/<modname>/
 ```
 
-If you have uploaded your package, an alert will pop up on the package page if it contains technical names that already exist on ContentDB. 
+If you have uploaded your package, an alert will pop up on the package page if it contains technical names that already exist on ContentDB.
 
 !["Please make sure that this package has the right to the names it uses."](/images/cdb_rtan_warning.png)
 

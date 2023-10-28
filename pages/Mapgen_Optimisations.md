@@ -83,7 +83,7 @@ for z = minp.z, maxp.z do
     for y = minp.y, maxp.y do
         local vi = area:index(minp.x, y, z)
         for x = minp.x, maxp.x do
-            --[[ code here ]]
+            -- code here
 
             vi = vi + 1
         end

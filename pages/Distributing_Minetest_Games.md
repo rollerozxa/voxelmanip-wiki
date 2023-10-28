@@ -1,6 +1,6 @@
-This page contains (at times very opinionated) notes about taking a Minetest game and distribute it outside of Minetest. It assumes that you know how to compile Minetest from source.
+This page contains (at times very opinionated) notes about taking a Minetest game and distributing it outside of Minetest. It assumes that you know how to compile Minetest from source.
 
-Minetest as an engine itself doesn't have any official means to export a game into a self-contained package with the engine. However as Minetest is free software you can fork the engine to rebrand it and bundle it with the game of your choosing.
+Minetest as an engine itself doesn't have any official means to export a game into a self-contained package with the engine, instead games are published on [ContentDB](https://content.minetest.net/packages/?type=game) which allows your game to be installed from the main menu content browser. However as Minetest is free software you can fork the engine to rebrand it and bundle it with your game for distribution outside of the Minetest ecosystem.
 
 [toc]
 
@@ -8,18 +8,18 @@ Minetest as an engine itself doesn't have any official means to export a game in
 Generally you're able to customise the main menu (at `builtin/mainmenu/`), which is written in Lua and formspec, however you'd like to suit your game.
 
 ### Locking down the singleplayer tab to one game
-Go into `src/defaultsettings.cpp` and change `default_game` to the gameid of your choice. It will now start up on your given game.
+As of 5.8.0-dev, the engine will automatically detect what games are installed and pick the first one installed. If you ship the engine with just your game, then it will select that game on the main menu.
 
 To remove the gamebar, it's enough to just remove this code in `builtin/mainmenu/tab_local.lua` and set the sizes of the buttonbar to 0:
 
 ```lua
 @@ -78,32 +78,8 @@ function singleplayer_refresh_gamebar()
- 
+
  	local btnbar = buttonbar_create("game_button_bar",
  		game_buttonbar_button_handler,
 -		{x=-0.3,y=5.9}, "horizontal", {x=12.4,y=1.15})
 +		{x=-0.3,y=5.9}, "horizontal", {x=0,y=0})
- 
+
 -	for _, game in ipairs(pkgmgr.games) do
 -		local btn_name = "game_btnbar_" .. game.id
 -
@@ -75,7 +75,7 @@ You can filter the serverlist to only show servers running the specified game. A
 ```lua
 @@ -181,7 +181,18 @@ function serverlistmgr.sync()
  			end
- 
+
  			local retval = core.parse_json(response.data)
 -			return retval and retval.list or {}
 +
@@ -118,7 +118,7 @@ You can change the default settings in `src/defaultsettings.cpp` to better suit 
 ### Rebranding
 To fully change the name of the engine you can change the name of the "project" in `CMakeLists.txt`. This will change the name of the executable and the name used on the titlebar, among other places. Keep in mind this will also mean you need to rename files in `misc/` and the translation files.
 
-To change the icon that's used for Minetest builds on Windows you'll have to replace `misc/minetest-icon.ico` with your game's icon in the Windows ICO file format. 
+To change the icon that's used for Minetest builds on Windows you'll have to replace `misc/minetest-icon.ico` with your game's icon in the Windows ICO file format.
 
 To make it install your given game instead of Minetest Game, go into `CMakeLists.txt` and change the line that installs `mods/minetest_game` to install your game instead. You may also remove things such as the documentation (e.g. lua_api.txt) and devtest. The lines that install this is right around where the game gets installed, just remove those.
 

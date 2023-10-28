@@ -12,7 +12,7 @@ NMPR has been made available at [<https://github.com/celeron55/minetest_nmpr>](h
 
 [toc]
 
-## Map (the voxels) {#map_the_voxels}
+## Map (the voxels)
 ![Minetest Voxel Storage](/images/minetest_voxel_storage.png)
 
 - The main content of the Map is a `map<v2s16, MapSector*>` container.
@@ -70,7 +70,6 @@ The NMPR server logic is 287 lines of code that runs in two threads:
 - Send player positions
 
 #### Packet handler
-
 The packet handler handles the TOSERVER\_\* commands coming from clients.
 
 | Name                | Description                                                          |

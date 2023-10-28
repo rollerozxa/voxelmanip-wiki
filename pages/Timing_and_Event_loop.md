@@ -61,7 +61,7 @@ CAUTION: The returned `time` is not portable and not relative to any specific po
 
 TIP: You can use the difference between ``minetest.get_us_time`` and the returned times to check whether a real-world timespan has passed, which is useful for rate limiting. For in-game timers, you might prefer adding up `dtime` or (if second precision is enough) using gametime.
 
-### Example
+#### Example
 
 It is possible to use a simple while-loop to wait for a timespan smaller than the server step. This is called a "busywait".
 

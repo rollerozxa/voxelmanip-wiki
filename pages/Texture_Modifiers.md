@@ -46,13 +46,13 @@ Lua provides three string notations: Quoted (single or double) and long. The typ
 
 Long strings enclose their content with two pairs of square brackets (`[]`) with a matching number of equals signs (`=`) between the two brackets of each pair:
 
-`[[...]]` and `[===[...]===]` are examples of valid long strings.
+\[\[...\]\] and `[===[...]===]` are examples of valid long strings.
 
 Within them, no escaping applies, which means that texture modifiers can be written down literally;
 a leading square bracket such as that of a generating texture modifier is not a problem.
-Example: `+[[[combine:1x1:0,0=a.png]]+`.
+Example: +\[\[\[`combine:1x1:0,0=a.png`\]\]+.
 
-Using equals signs is never necessary since texture modifiers won't contain `[[` or `]]`.
+Using equals signs is never necessary since texture modifiers won't contain \[\[ or \]\].
 
 TIP: You can use metamethods in order to implement a neat, possibly OOP-ish Lua DSL that does the escaping and formatting for you.
 

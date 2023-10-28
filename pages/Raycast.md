@@ -5,7 +5,6 @@ With some limitations, they work almost exactly like the player pointing at thin
 [toc]
 
 ## Pointed Thing
-
 Pointed things in-game as passed to various callbacks are either
 
 * Nothing (`{type = "nothing"}`), or
@@ -15,18 +14,15 @@ Pointed things in-game as passed to various callbacks are either
 Pointed thing tables are thus a "tagged union" type, taking the following forms for objects & nodes:
 
 ### Objects
-
 - `type` - `{type-string}`: `"object"`
 - `ref` - ObjectRef: The pointed ObjectRef
 
 ### Nodes
-
 - `type` - `{type-string}`: `"node"`
 - `under` - `{type-vector}`: The position of the pointed node (the node which would be dug if using an appropriate tool)
 - `above` - `{type-vector}`: The position of the pointed node plus the pointed face normal (the position of the node which would be placed if you were building)
 
 ### Additional Raycast Fields
-
 These fields are only available in pointed things returned by raycasts.
 
 - `box_id` - `{type-number}`: Only relevant for nodes: 1-indexed ID of the pointed selection box of the node
@@ -36,23 +32,19 @@ These fields are only available in pointed things returned by raycasts.
 Raycasts do not emit "nothing" pointed things.
 
 ## `minetest.line_of_sight(pos1, pos2)`
-
 Checks whether any non-air node is blocking the line of sight between two positions.
 
-You may use this to determine e.g. whether a target would be visible to a mob.
-Raycasts will often be preferable since they provide more fine-grained control
-(objects, liquids, looping over possibly blocking things in the line of sight).
+You may use this to determine e.g. whether a target would be visible to a mob. Raycasts will often be preferable since they provide more fine-grained control (objects, liquids, looping over possibly blocking things in the line of sight).
 
-### Arguments
+**Arguments:**
 - `pos1` - `{type-vector}`: Starting position of the line ("segment") of sight
 - `pos2` - `{type-vector}`: Ending position of the line ("segment") of sight
 
-### Returns
+**Returns:**
 - `free_sight` - `{type-bool}`: Whether any node is blocking the sight
 - `pos` - `{type-vector}`: Position of the "first" node (the node closest to `pos1`) blocking the sight (only returned if `free_sight` is `false`)
 
 ## `Raycast(from_pos, to_pos, include_objects, include_liquid_nodes)`
-
 Creates a raycast object; OOP-constructor-style alias for `minetest.raycast`.
 
 IMPORTANT: [Raycasts work on selection-, not collision boxes, making them coherent with player pointing but not physics (collisions) unless selection- and collision boxes are identical.](https://github.com/minetest/minetest/issues/12673)
@@ -61,13 +53,13 @@ TIP: Have selection boxes, collision boxes (and ideally even visuals) match for 
 
 IMPORTANT: [Serverside raycasts do not support attachments properly; the server is unaware of model specificities, doesn't keep track of automatic rotation etc.](https://github.com/minetest/minetest/issues/10304)
 
-### Arguments
+**Arguments:**
 - `from_pos` - `{type-vector}`: Starting position of the raycast (usually eye position)
 - `to_pos` - `{type-vector}`: Ending position of the raycast (usually eye position + look direction times range)
 - `include_objects` - `{type-bool}`: Whether objects are included (considered pointable). Optional, defaults to `true`.
 - `include_liquids` - `{type-bool}`: Whether liquids are included (considered pointable). Optional, defaults to `true`.
 
-### Returns
+**Returns:**
 - `ray` - Raycast iterator object: Non-restartable, stateful iterator of pointed things
 
 The Raycast iterator object is callable. Calling `ray()` is syntactic sugar for `ray:next()`.
@@ -107,8 +99,7 @@ while pointed_thing ~= nil do
 end
 ```
 
-There is absolutely no need to manually step through raycasts
-using the latter two more verbose loops.
+There is absolutely no need to manually step through raycasts using the latter two more verbose loops.
 
 IMPORTANT: Restartability is the ability of an iterator to start again. For example, `ipairs` is resumable:
 
@@ -123,8 +114,7 @@ end
 
 will work just expected, printing the contents of `t` three times.
 
-*Raycasts are not restartable.* Iterating them _"consumes"_ the pointed things;
-they can't be iterated again. The following will not work as expected:
+*Raycasts are not restartable.* Iterating them _"consumes"_ the pointed things; they can't be iterated again. The following will not work as expected:
 
 ```lua
 local ray = Raycast(...)
@@ -135,9 +125,7 @@ for _ = 1, 3 do
 end
 ```
 
-this will print the pointed things (table addresses) exactly once:
-after the first run of the inner `for` loop, all pointed things have been consumed;
-subsequent runs exit immediately, not entering the `for` loop at all.
+this will print the pointed things (table addresses) exactly once: after the first run of the inner `for` loop, all pointed things have been consumed; subsequent runs exit immediately, not entering the `for` loop at all.
 
 One advantage of this is that Raycasts remember their looping state. The following is thus possible:
 
@@ -155,9 +143,7 @@ end
 
 ### Redo tool raycasts
 
-Useful to obtain the additional raycast pointed thing fields,
-to dynamically decide what is pointable and what is not,
-to determine the pointed thing periodically ("what am I looking at?") etc.
+Useful to obtain the additional raycast pointed thing fields, to dynamically decide what is pointable and what is not, to determine the pointed thing periodically ("what am I looking at?") etc.
 
 ```lua
 -- Calculate eye position including eye offset

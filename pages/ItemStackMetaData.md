@@ -1,8 +1,6 @@
 ItemStackMetaData is a subclass of [[MetaData]] obtained via `stack:get_meta()` allowing for persistent storage of key-value pairs tied to ItemStacks.
 
-WARNING: ItemStack metadata is serialized with ItemStacks, increasing the ItemString length.
-Inventories have to store multiple ItemStrings, all of which an attacker will try to get to maximum length.
-Always limit the size of your ItemStackMetaData to keep inventories sendable.
+WARNING: ItemStack metadata is serialized with ItemStacks, increasing the ItemString length. Inventories have to store multiple ItemStrings, all of which an attacker will try to get to maximum length. Always limit the size of your ItemStackMetaData to keep inventories sendable.
 
 [toc]
 
@@ -17,9 +15,7 @@ Always limit the size of your ItemStackMetaData to keep inventories sendable.
 * `palette_index`: Palette index to use for hardware colorization of the stack (if the stack has a palette).
 
 ### Count
-Requires Minetest 5.6 clients for the count override
-(older clients will simply show the item count according to the item definition);
-works on all 5.x servers since it only uses ItemStackMetaData serverside.
+Requires Minetest 5.6 clients for the count override (older clients will simply show the item count according to the item definition); works on all 5.x servers since it only uses ItemStackMetaData serverside.
 
 #### `count_meta`
 String to show in inventory lists instead of the item count.
@@ -27,15 +23,14 @@ String to show in inventory lists instead of the item count.
 #### `count_alignment`
 Integer (use with `:get_int` and `:set_int`).
 
-Alignment of the displayed item count value is encoded as `x_align + 4 * y_align`
-where `x_align` and `y_align` are one of:
+Alignment of the displayed item count value is encoded as `x_align + 4 * y_align` where `x_align` and `y_align` are one of:
 
 | Value | X-alignment (horizontally) | Y-alignment (vertically) |
-|---|----|----|
-| `0` | Default (same as `3`) | Default (same as `3`) |
-| `1` | Left | Top/Up |
-| `2` | Centered/Middle | Centered/Middle |
-| `3` | Right | Bottom/Down |
+| ----- | -------------------------- | ------------------------ |
+| `0`   | Default (same as `3`)      | Default (same as `3`)    |
+| `1`   | Left                       | Top/Up                   |
+| `2`   | Centered/Middle            | Centered/Middle          |
+| `3`   | Right                      | Bottom/Down              |
 
 TIP: Magic numbers make code unreadable. Add an explanatory comment when setting alignment:
 

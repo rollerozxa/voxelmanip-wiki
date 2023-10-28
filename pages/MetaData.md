@@ -13,14 +13,11 @@ Subclasses tie the key-value store to various objects recognized by Minetest:
 ## Methods
 
 ### Getters
-NOTE: No type information is stored for values; values will be coerced to and from string as needed.
-Mods need to know which type they expect in order to call the appropriate getters & setters.
-Do not rely on coercion to work one way or another; never mix different types.
+NOTE: No type information is stored for values; values will be coerced to and from string as needed. Mods need to know which type they expect in order to call the appropriate getters & setters. Do not rely on coercion to work one way or another; never mix different types.
 
 WARNING: [Getters currently resolve the value `${key}` to the value associated with `key`](https://github.com/minetest/minetest/issues/12577).
 
-TIP: Due to the limitations of the provided setters & getters, you might favor using your own
-(de)serialization for coercion of Lua types to strings which can be stored in the string k-v store.
+TIP: Due to the limitations of the provided setters & getters, you might favor using your own (de)serialization for coercion of Lua types to strings which can be stored in the string k-v store.
 
 * `minetest.write_json` & `minetest.parse_json` for Lua tables which are representable as JSON;
 * `minetest.serialize` & `minetest.deserialize` for arbitrary Lua tables (consisting of tables & primitive types);
@@ -39,13 +36,11 @@ local got_lua = minetest.deserialize(meta:get_string"lua")
 assert(got_lua[42] ## true and got_lua[true] ## false)
 ```
 
-Applying serialization to numbers provides you with safe number storage;
-you don't have to worry about C(++) type bounds.
+Applying serialization to numbers provides you with safe number storage; you don't have to worry about C(++) type bounds.
 
 **Arguments:**
 
 All getters take only a single argument: The key/name.
-
 - `key` - `{type-string}`: the key/name
 
 #### `:contains(key)`
@@ -82,7 +77,6 @@ Retrieves the value associated with a key & coerces it to an integer.
   - `{type-number}`: The associated value, coerced to an integer
 
 #### `:get_float(key)`
-
 Retrieves the value associated with a key & coerces it to a floating-point number.
 
 **Returns:**
@@ -91,7 +85,6 @@ Retrieves the value associated with a key & coerces it to a floating-point numbe
   - `{type-number}`: The associated value, coerced to a floating point number
 
 ### Setters
-
 **Arguments & Returns:**
 
 Setters have no return values; they all take exactly two arguments: Key & value.
@@ -109,18 +102,13 @@ Setters have no return values; they all take exactly two arguments: Key & value.
 **Arguments:**
 - `value` - `{type-number}`: The integer value to coerce to a string & associate with `key`
 
-WARNING: Integer refers to a C(++) `int` as internally used by the implementation - usually 32 bits wide -
-meaning it is unable to represent as large integer numbers as the Lua number type.
-Be careful when storing integers with large absolute values; they may overflow.
-Keep `value` between `-2^31` and `2^31 - 1`, both inclusive.
+WARNING: Integer refers to a C(++) `int` as internally used by the implementation - usually 32 bits wide - meaning it is unable to represent as large integer numbers as the Lua number type. Be careful when storing integers with large absolute values; they may overflow. Keep `value` between `-2^31` and `2^31 - 1`, both inclusive.
 
 #### `:set_float(key, value)`
 **Arguments:**
 - `value` - `{type-number}`: The floating-point value to coerce to a string & associate with `key`
 
-WARNING: The implementation internally uses the C(++) `float` type - usually 32 bits wide -
-whereas Lua guarantees 64-bit "double-precision" floating point numbers.
-This may lead to a precision loss. Large numbers in particular may be hardly representable.
+WARNING: The implementation internally uses the C(++) `float` type - usually 32 bits wide - whereas Lua guarantees 64-bit "double-precision" floating point numbers. This may lead to a precision loss. Large numbers in particular may be hardly representable.
 
 #### `:equals(other)`
 **Arguments:**

@@ -165,7 +165,6 @@ A nested hierarchical key-value store is possible through directory structures, 
 If you want to mitigate the risk of data loss, you can use `minetest.safe_file_write` when (re)writing files.
 
 #### Configuration files
-
 The `Settings` object allows you to operate on configuration files, getting & setting key-value entries and saving the file.
 The main `Settings` object `minetest.settings` can be used to persist a few settings "globally" - bleeding everywhere.
 This is horribly abused by the mainmenu to store stuff like the last selected game. Don't be like the mainmenu;
@@ -177,7 +176,6 @@ but this is usually not a requirement for game data which is "edited" by in-game
 indeed, you might not want to tempt players to cheat in singleplayer by editing their "saves".
 
 #### MetaData
-
 Minetest provides metadata objects which all provide a simple string key-value store, tied to four different game "objects":
 
 1. ItemStacks: `ItemStackMetaData`: Fully sent to clients; serialized within inventories, which may be serialized within mapblocks
