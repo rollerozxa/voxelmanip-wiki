@@ -11,7 +11,7 @@ https://content.minetest.net/modnames/<modname>/
 
 If you have uploaded your package, an alert will pop up on the package page if it contains technical names that already exist on ContentDB.
 
-!["Please make sure that this package has the right to the names it uses."](/images/cdb_rtan_warning.png)
+!["Please make sure that this package has the right to the names it uses."](/images/cdb_rtan_warning.webp)
 
 Just because this message shows up doesn't necessarily mean you are violating the policy, as the name conflicts could fall under the exceptions mentioned below. The message is also used for ContentDB Editors to quickly check the validity of technical names used in a package during review.
 

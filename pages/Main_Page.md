@@ -1,4 +1,4 @@
-![The Voxelmanip Minetest Wiki](https://grejer.voxelmanip.se/uploads/bikeshedding.png)
+![The Voxelmanip Minetest Wiki](/assets/bikeshedding.webp)
 *What colour would you want the bikeshed to be painted today?*
 
 **Welcome to The Voxelmanip Minetest Wiki** (or Voxelmanip Wiki for short, non-SEO reasons). It is *a* Wiki about Minetest, but isn't *the* Minetest Wiki.
