@@ -16,7 +16,5 @@ It is the official reference for the Lua API, it is maintained by the Minetest c
 ## Minetest Wiki
 The [Minetest Wiki](https://wiki.minetest.net) (not to be confused with the Voxelmanip Minetest Wiki) is the official Wiki, originally meant for "players". The contents mostly consist of outdated information about Minetest Game, but also contains some useful documentation gems about the engine.
 
-Due to the bad performance of the Wiki server, ROllerozxa has set up a mirror available at [wiki.minetest.land](https://wiki.minetest.land) (rather than wiki.minetest.net).
-
 ## Minetest Developer Wiki
 The [Minetest Developer Wiki](https://dev.minetest.net) is intended to be a Minetest Wiki for developers, as opposed to the "player" Wiki. Outside of a tiny amount of gems for core engine development, it is lacking and sometimes worse than useless.
