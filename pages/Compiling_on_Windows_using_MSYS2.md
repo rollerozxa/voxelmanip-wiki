@@ -19,7 +19,7 @@ The terminal will then ask you to close it when done. Proceed with doing so, and
 First install all the necessary dependencies:
 
 ```bash
-pacman -S git base-devel mingw-w64-x86_64-{toolchain,cmake,ninja,curl,libpng,libjpeg-turbo,freetype,libogg,libvorbis,sqlite3,openal,zstd,gettext,luajit}
+pacman -S git base-devel mingw-w64-x86_64-{toolchain,cmake,ninja,curl-winssl,libpng,libjpeg-turbo,freetype,libogg,libvorbis,sqlite3,openal,zstd,gettext,luajit}
 ```
 
 Navigate to some folder where you want to clone the Minetest repository. To get out of MSYS' home folder and into your regular users folder, you would want to enter something like this:
