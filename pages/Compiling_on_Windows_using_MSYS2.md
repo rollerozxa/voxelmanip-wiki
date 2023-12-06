@@ -58,7 +58,7 @@ curl https://raw.githubusercontent.com/rollerozxa/msys2-bundledlls/master/bundle
 When you have downloaded the script, usage is as such:
 
 ```bash
-../mingw-bundledlls --copy ../bin/minetest.exe
+../bundledlls ../bin/minetest.exe ../bin/
 ```
 
 It will print out a list of libraries it has copied to the binary folder once finished. Now it should be possible to run the Minetest executable outside of the MSYS2 environment.
