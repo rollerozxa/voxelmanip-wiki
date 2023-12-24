@@ -76,7 +76,7 @@ WARNING: Requires `((max - min) == 32767) or ((max-min) <= 6553))` for a proper 
 ### `SecureRandom`
 System-provided cryptographically secure random: An attacker should not be able to predict the generated sequence of random numbers. Use this when generating cryptographic keys or tokens.
 
-Not necessarily available in all builds and on all platforms.
+On Windows, the Win32 Crypto API is used to retrieve cryptographically secure random values which is available on every supported version of Windows. On any other platform it is retrieved from `/dev/urandom` which should be available on all Unix-like platforms such as Linux and Android. However it is theoretically still possible that a secure random source is not available, and you should use an assertion to make sure that a SecureRandom object is actually returned (see below).
 
 #### `SecureRandom()`
 Constructor: Returns a SecureRandom object or `nil` if no secure random source is available.
