@@ -13,13 +13,13 @@ After installation, a terminal opens. Run the following command to update the en
 pacman -Syu
 ```
 
-The terminal will then ask you to close it when done, proceed with doing so and then reopen the MSYS2 UCRT64 environment whose icon has a gold background. (For information on what the different environments do, see [Environments](https://www.msys2.org/docs/environments/) in MSYS2's documentation)
+The terminal will then ask you to close it when done, proceed with doing so and then open the MSYS2 CLANG64 environment whose icon has a dark orange background. (For information on what the different environments do, see [Environments](https://www.msys2.org/docs/environments/) in MSYS2's documentation)
 
 ## Compiling
 First install all the necessary dependencies:
 
 ```bash
-pacman -S git mingw-w64-ucrt-x86_64-{gcc,cmake,ninja,curl-winssl,libpng,libjpeg-turbo,freetype,libogg,libvorbis,sqlite3,openal,zstd,gettext,luajit}
+pacman -S git mingw-w64-clang-x86_64-{clang,cmake,ninja,curl-winssl,libpng,libjpeg-turbo,freetype,libogg,libvorbis,sqlite3,openal,zstd,gettext,luajit,sdl2}
 ```
 
 Navigate to some folder where you want to clone the Minetest repository. To get out of MSYS' home folder and into your regular users folder, you would want to enter something like this:
@@ -69,9 +69,9 @@ It will print out a list of libraries it has copied to the binary folder once fi
 If you have an existing MSYS2 install that has been dormant for a while without updates, you might run into issues trying to install or update packages as the keyring is outdated. See [this section](https://www.msys2.org/docs/updating/#potential-issues) on the MSYS2 website on how to solve this.
 
 ### Building 32-bit
-If you want to build a 32-bit version of Minetest you would want to use the MINGW32 environment (grey background).
+If you want to build a 32-bit version of Minetest you would want to use the CLANG32 environment (light orange background).
 
-When installing dependencies, use the `mingw-w64-i686-` prefix used for MINGW32 packages instead of `mingw-w64-ucrt-x86_64-`.
+When installing dependencies, use the `mingw-w64-clang-i686-` prefix used for CLANG32 packages instead of `mingw-w64-clang-x86_64-`.
 
 ### Graphics is broken in a VM
 If you're doing this inside of a VM and you want to test the executable but get graphics issues due to a lack of hardware acceleration, you can try downloading the Mesa software renderer as a DLL. [Download the 64-bit version of the DLL here](https://fdossena.com/?p=mesa/index.frag) and put it next to the executable in `bin/`. It will be slow but should be usable for testing.
