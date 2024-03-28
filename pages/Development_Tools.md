@@ -27,5 +27,5 @@ This page contains a list of tools that are useful for developing games and mods
 - [Minetest Formspec Editor](https://luk3yx.gitlab.io/minetest-formspec-editor/): WYSIWYG online formspec editor
 
 ## Translation
-- [update_translations](https://github.com/FaceDeer/update_translations): Python script to create and update mod translation files (\*.tr)
-- [minetest_check_translations](https://codeberg.org/Wuzzy/minetest_check_translations): Python script to check mod translation files for syntax errors
+- [mod_translation_updater](https://github.com/minetest/minetest/blob/master/util/mod_translation_updater.py): Python script to create and update mod translation files (\*.tr)
+- [minetest_translation_tools](https://codeberg.org/Wuzzy/minetest_translation_tools): Additional Python scripts for maintaining Minetest mod translations
