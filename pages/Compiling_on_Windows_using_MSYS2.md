@@ -28,12 +28,11 @@ Navigate to some folder where you want to clone the Minetest repository. To get 
 cd /c/Users/$USER/Desktop
 ```
 
-Clone Minetest and IrrlichtMt:
+Clone Minetest:
 
 ```bash
 git clone --depth 1 https://github.com/minetest/minetest
 cd minetest
-git clone --depth 1 https://github.com/minetest/irrlicht lib/irrlichtmt
 ```
 
 And start the building process:
