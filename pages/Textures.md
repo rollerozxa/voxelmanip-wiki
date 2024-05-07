@@ -6,7 +6,7 @@ This page lists the image formats that Minetest supports for textures, along wit
 PNG is an all-round good image format, with lossless compression.
 
 ### Optimising
-PNG files can be losslessly optimised using the `optipng` tool, which is useful for trimming the filesize of all textures without losing any important information.
+PNG files can be losslessly optimised using the [`optipng`](https://optipng.sourceforge.net/) tool, which is useful for trimming the filesize of all textures without losing any important information.
 
 When run with no arguments `optipng` optimizes completely losslessly (no color, metadata or transparency is lost). However there are arguments in addition that can be added in order to further reduce the size or to preserve specific data you might want to keep. A more exhaustive list of arguments and what they do can be found in optipng's manual or in the help text available with `optipng -h`.
 
