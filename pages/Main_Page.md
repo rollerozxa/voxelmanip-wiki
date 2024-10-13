@@ -1,8 +1,10 @@
 ![The Voxelmanip Minetest Wiki](/assets/bikeshedding.webp)
 *What colour would you want the bikeshed to be painted today?*
 
-**Welcome to The Voxelmanip Minetest Wiki** (or Voxelmanip Wiki for short, non-SEO reasons). It is *a* Wiki about Minetest, but isn't *the* Minetest Wiki.
+**Welcome to The Voxelmanip Luanti (formerly Minetest) Wiki** (or Voxelmanip Wiki for short, non-SEO reasons). It is *a* Wiki about Luanti, but isn't *the* Luanti Wiki.
 
-The Voxelmanip Wiki is an unofficial Wiki that mainly focuses on the modding and development aspects of Minetest. For information about Minetest Game or playing Minetest as a player, see the [Minetest Wiki](https://wiki.minetest.net).
+The Voxelmanip Wiki is an unofficial Wiki that mainly focuses on the modding and development aspects of Luanti. For information about Minetest Game, see the [Minetest Wiki](https://wiki.minetest.net).
+
+Luanti is currently in the process of changing its name from Minetest to Luanti. The Voxelmanip Wiki is following this gradual transition, but you may see both names being used on pages.
 
 To view the list of pages currently available, see the [Page Index](Special:PageIndex).
