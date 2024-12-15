@@ -1,7 +1,7 @@
 <?php
 
 $pageRedirects = [
-    'Compiling_on_Windows_using_MSYS2' => '',
+    'Compiling_on_Windows_using_MSYS2' => 'https://dev.luanti.org/compiling-on-windows-using-msys2/',
     'Custom_Fonts' => '',
     'Custom_Lua_Mapgen' => '',
     'Development_Tools' => '',
@@ -13,7 +13,7 @@ $pageRedirects = [
     'Improving_Build_Times' => 'https://dev.luanti.org/improving-build-times/',
     'ItemStackMetaData' => 'https://dev.luanti.org/docs/classes/itemstackmetadata/',
     'Keeping_World_Compatibility' => 'https://dev.luanti.org/keeping-world-compatibility/',
-    'Limitations' => '',
+    'Limitations' => 'https://dev.luanti.org/limitations/',
     'LuaJIT' => 'https://dev.luanti.org/luajit/',
     'LuaJIT_Differences' => 'https://dev.luanti.org/luajit-differences/',
     'Lua_Environment' => 'https://dev.luanti.org/docs/lua-environment/',
@@ -24,7 +24,6 @@ $pageRedirects = [
     'Minetest_NMPR' => 'https://dev.luanti.org/engine/nmpr/',
     'ModStorage' => 'https://dev.luanti.org/docs/classes/modstorage/',
     'Mod_Dependency_Management' => '',
-    'Mod_Soup' => '',
     'Modchannels' => 'https://dev.luanti.org/docs/modchannels/',
     'NodeMetaData' => 'https://dev.luanti.org/docs/classes/nodemetadata/',
     'Nodes' => '',
@@ -39,12 +38,10 @@ $pageRedirects = [
     'Setting_up_a_server' => 'https://dev.luanti.org/setting-up-a-server/',
     'Spawn_Algorithm' => 'https://dev.luanti.org/spawn-algorithm/',
     'Texture_Modifiers' => 'https://dev.luanti.org/docs/texture-modifiers/',
-    'Textures' => '',
+    'Textures' => 'https://dev.luanti.org/textures/',
     'Timing_and_Event_loop' => 'https://dev.luanti.org/docs/timing-and-event-loop/',
-    'Using_Blockbench' => '',
+    'Using_Blockbench' => 'https://dev.luanti.org/using-blockbench/',
     'Vector_API' => 'https://dev.luanti.org/docs/classes/vector/',
     'VoxelArea' => 'https://dev.luanti.org/docs/classes/voxelarea/',
-    'env_meta.txt' => '',
-    'minetest_docs' => '',
 ];
 
