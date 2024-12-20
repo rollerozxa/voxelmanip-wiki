@@ -1,8 +1,10 @@
+---
+title: Custom Fonts
+---
+
 Currently the Minetest engine does not officially support custom fonts sent as media by a game or mod (See issue [#10416](https://github.com/minetest/minetest/issues/10416)). However if you are making a singleplayer game there is a workaround that requires changing the engine's font settings from a mod.
 
 As you will be making changes that set global settings, please be mindful of the player's previous settings! You should reset back to the original settings' values on shutdown, and take extra precautions in the case of an unclean shutdown. See [Caution](#Caution) for more on that.
-
-[toc]
 
 ## Example
 Say for example you have some fonts in a folder at the root of your game's directory, and a mod in your game that will set the font settings. This would be the file structure:
@@ -49,4 +51,4 @@ end
 ## Caution
 It is very important to note that setting the font path like this **WILL take effect outside of your game,** as settings set from a mod will be saved to the player's global settings file.
 
-You should save the previous values of the font settings you change in a persistent storage (e.g. [[ModStorage]]), both such that it can be reset on shutdown, and to recover previous settings if the game crashed. For example, if the game detects previous settings existing in storage it can assume an unclean shutdown and opt to reset the settings to what the user had set previously during the next clean shutdown. (TODO: example of such a system)
+You should save the previous values of the font settings you change in a persistent storage (e.g. ModStorage), both such that it can be reset on shutdown, and to recover previous settings if the game crashed. For example, if the game detects previous settings existing in storage it can assume an unclean shutdown and opt to reset the settings to what the user had set previously during the next clean shutdown. (TODO: example of such a system)

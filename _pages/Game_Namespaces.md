@@ -1,3 +1,7 @@
+---
+title: Game Namespaces
+---
+
 This page lists all namespaces used by games that are available on ContentDB.
 
 | Namespace       | Game                         |

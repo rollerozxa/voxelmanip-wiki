@@ -1,0 +1,39 @@
+title: Voxelmanip Luanti Wiki
+description: The Voxelmanip Luanti Wiki...
+
+repo: https://github.com/rollerozxa/voxelmanip-wiki
+
+exclude:
+  - README.md
+
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable : true
+
+sass:
+  style: compressed
+  sourcemap: never
+
+collections:
+  pages:
+    permalink: /:path
+    output: true
+  redirects:
+    permalink: /:path
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "redirects"
+    values:
+      layout: "redirect"
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
